@@ -1,0 +1,50 @@
+name: KorshunTools
+version: '${project.version}'
+main: ru.korshun.korshuntools.KorshunTools
+commands:
+  korshuntools:
+    aliases:
+      - kt
+    description: Команда плагина KorshunTools
+  fly:
+    aliases:
+      - ktfly
+      - korshuntoolsfly
+    description: Включает/выключает режим полета
+  sethealth:
+    aliases:
+      - ktsh
+      - sh
+      - korshuntoolssh
+      - korshuntoolssethealth
+      - ktsethealth
+    description: Устанавливает определенное значение уровню здоровья игрока
+  setfood:
+    aliases:
+      - ktsf
+      - sf
+      - korshuntoolssetfood
+      - ktsetfood
+    description: Устанавливает определенное значение уровню еды игрока
+  checkfly:
+    aliases:
+      - flycheck
+    description: Проверяет, включен ли у игрока режим полета
+permissions:
+  korshuntools.fly:
+    description: Разрешение на включение/отключение режима полета
+    default: op
+  korshuntools.fly.others:
+    description: Разрешение на включение/отключение режима полета для других игроков
+    default: op
+  korshuntools.sethealth:
+    description: Разрешение на использование команды sethealth
+    default: op
+  korshuntools.setfood:
+    description: Разрешение на использование команды setfood
+    default: op
+  korshuntools.korshuntools.reload:
+    description: Разрешение на команду /korshuntools reload
+    default: op
+  korshuntools.checkfly:
+    description: Разрешение на команду /checkfly
