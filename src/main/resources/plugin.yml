@@ -1,6 +1,7 @@
 name: KorshunTools
 version: '${project.version}'
 main: ru.korshun.korshuntools.KorshunTools
+api-version: 1.16
 commands:
   korshuntools:
     aliases:

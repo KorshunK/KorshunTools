@@ -12,76 +12,78 @@ public class FlyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        if (!sender.hasPermission("korshuntools.fly")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.no-permissions")));
-            return false;
+        if (!KorshunTools.getInstance().getConfig().getBoolean("commands.fly")) {
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.command-disable")));
+            return true;
         } else {
-            if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.sender-not-player")));
+            if (!sender.hasPermission("korshuntools.fly")) {
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.no-permissions")));
                 return false;
-            }
-            else {
-                if (args.length == 0) {
-                    if (player.getAllowFlight() == false) {
-                        player.setAllowFlight(true);
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-enable")));
-                        return true;
-                    } else {
-                        player.setAllowFlight(false);
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-disable")));
-                        return true;
+            } else {
+                if (!(sender instanceof Player)) {
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.sender-not-player")));
+                    return false;
+                } else {
+                    if (args.length == 0) {
+                        if (player.getAllowFlight() == false) {
+                            player.setAllowFlight(true);
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-enable")));
+                            return true;
+                        } else {
+                            player.setAllowFlight(false);
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-disable")));
+                            return true;
+                        }
                     }
                 }
             }
-        }
-        if (!sender.hasPermission("korshuntools.fly.others")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.no-permissions")));
-        } else {
-            if (args.length == 1) {
+            if (!sender.hasPermission("korshuntools.fly.others")) {
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.no-permissions")));
+            } else {
+                if (args.length == 1) {
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (target == null) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
+                        return false;
+                    } else {
+                        if (!target.getAllowFlight()) {
+                            target.setAllowFlight(true);
+                            sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target);
+                            target.sendMessage(ChatColor.GREEN + "Вам включили режим полета");
+                            return true;
+                        } else {
+                            target.setAllowFlight(false);
+                            sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target);
+                            target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
+                            return true;
+                        }
+                    }
+                }
+            }
+            if (args.length == 2) {
                 Player target = Bukkit.getPlayer(args[0]);
                 if (target == null) {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
                     return false;
                 } else {
-                    if (!target.getAllowFlight()) {
+                    if (args[1].equalsIgnoreCase("true")) {
                         target.setAllowFlight(true);
                         sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target);
                         target.sendMessage(ChatColor.GREEN + "Вам включили режим полета");
                         return true;
-                    } else {
+                    }
+                    if (args[1].equalsIgnoreCase("false")) {
                         target.setAllowFlight(false);
                         sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target);
                         target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
                         return true;
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "Неизвестный аргумент!");
+                        return false;
                     }
                 }
             }
+            return true;
         }
-        if(args.length == 2) {
-            Player target = Bukkit.getPlayer(args[0]);
-            if(target == null) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
-                return false;
-            }
-            else {
-                if(args[1].equalsIgnoreCase("true")) {
-                    target.setAllowFlight(true);
-                    sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target);
-                    target.sendMessage(ChatColor.GREEN + "Вам включили режим полета");
-                    return true;
-                }
-                if(args[1].equalsIgnoreCase("false")) {
-                    target.setAllowFlight(false);
-                    sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target);
-                    target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
-                    return true;
-                }
-                else {
-                    sender.sendMessage(ChatColor.RED + "Неизвестный аргумент!");
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }

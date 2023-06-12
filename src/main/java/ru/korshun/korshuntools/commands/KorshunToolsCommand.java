@@ -11,7 +11,7 @@ public class KorshunToolsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.GREEN + "Версия: 1.2.1");
+            sender.sendMessage(ChatColor.GREEN + "Версия: 1.3");
             sender.sendMessage(ChatColor.RED + "Для помощи: /kt help");
             return true;
         }

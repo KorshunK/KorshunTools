@@ -2,6 +2,13 @@ fly-enable-material: LIME_SHULKER_BOX
 fly-disable-material: RED_SHULKER_BOX
 fly-enable-displayname: "&aВключено"
 fly-disable-displayname: "&cВыключено"
+commands:
+  fly: true
+  checkfly: true
+  checkhealth: true
+  checkfood: true
+  sethealth: true
+  setfood: true
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
@@ -12,3 +19,4 @@ messages:
   checkfly-menu-title: "Проверка режима полета"
   target-health-level: "&a{health_level}"
   target-food-level: "&a{food_level}"
+  command-disable: "&cКоманда отключена"
