@@ -38,8 +38,7 @@ public class FlyCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.no-permissions")));
         } else {
             if (args.length == 1) {
-                String targetname = args[0];
-                Player target = Bukkit.getPlayer(targetname);
+                Player target = Bukkit.getPlayer(args[0]);
                 if (target == null) {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
                     return false;
@@ -59,8 +58,7 @@ public class FlyCommand implements CommandExecutor {
             }
         }
         if(args.length == 2) {
-            String targetname = args[0];
-            Player target = Bukkit.getPlayer(targetname);
+            Player target = Bukkit.getPlayer(args[0]);
             if(target == null) {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
                 return false;
