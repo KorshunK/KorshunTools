@@ -30,6 +30,12 @@ commands:
     aliases:
       - flycheck
     description: Проверяет, включен ли у игрока режим полета
+  checkhealth:
+    aliases:
+      - healthcheck
+  checkfood:
+    aliases:
+      - foodcheck
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -48,3 +54,10 @@ permissions:
     default: op
   korshuntools.checkfly:
     description: Разрешение на команду /checkfly
+    default: op
+  korshuntools.checkhealth:
+    description: Разрешение на использование команды /checkhealth
+    default: op
+  korshuntools.checkfood:
+    description: Разрешение на использование команды /checkfood
+    default: op

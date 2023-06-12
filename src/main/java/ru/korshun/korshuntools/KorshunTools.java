@@ -25,6 +25,8 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("korshuntools").setTabCompleter(new KorshunToolsTabCompleter());
         getLogger().info("[KorshunTools] " + ChatColor.GREEN + "Enabled!");
         getCommand("checkfly").setExecutor(new CheckFlyCommand());
+        getCommand("checkhealth").setExecutor(new CheckHealthCommand());
+        getCommand("checkfood").setExecutor(new CheckFoodCommand());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
         saveDefaultConfig();
     }
