@@ -69,13 +69,13 @@ public class FlyCommand implements CommandExecutor {
                 } else {
                     if (args[1].equalsIgnoreCase("true")) {
                         target.setAllowFlight(true);
-                        sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target);
+                        sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target.getName());
                         target.sendMessage(ChatColor.GREEN + "Вам включили режим полета");
                         return true;
                     }
                     if (args[1].equalsIgnoreCase("false")) {
                         target.setAllowFlight(false);
-                        sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target);
+                        sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target.getName());
                         target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
                         return true;
                     } else {
