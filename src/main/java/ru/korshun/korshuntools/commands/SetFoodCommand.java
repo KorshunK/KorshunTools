@@ -36,6 +36,7 @@ public class SetFoodCommand implements CommandExecutor {
                     }
                     target.setFoodLevel(FoodLevel);
                     target.sendMessage(ChatColor.GREEN + "Вам установили уровень еды на значение " + FoodLevel);
+                    sender.sendMessage(ChatColor.GREEN + "Вы установили игроку " + target.getName() + " уровень еды на значение " + FoodLevel);
                     return true;
                 }
             }

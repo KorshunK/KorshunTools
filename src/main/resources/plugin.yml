@@ -37,6 +37,14 @@ commands:
   checkfood:
     aliases:
       - foodcheck
+  heal:
+    aliases:
+      - ktheal
+      - korshuntoolsheal
+  feed:
+    aliases:
+      - ktfeed
+      - korshuntoolsfeed
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -61,4 +69,10 @@ permissions:
     default: op
   korshuntools.checkfood:
     description: Разрешение на использование команды /checkfood
+    default: op
+  korshuntools.heal:
+    description: Разрешение на использование команды /heal
+    default: op
+  korshuntools.feed:
+    description: Разрешение на использование команды /feed
     default: op

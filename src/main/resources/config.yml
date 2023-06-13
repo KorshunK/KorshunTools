@@ -9,14 +9,22 @@ commands:
   checkfood: true
   sethealth: true
   setfood: true
+  feed: true
+  heal: true
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
   fly-enable: "&aРежим полета включен!"
   fly-disable: "&cРежим полета выключен!"
   sender-not-player: "&cЭту команду могут выполнять только игроки!"
-  health-level-big: "&cМаксимальный уровень здоровья: 20"
+  health-level-big: "&cМаксимальный уровень здоровья: {max_health}"
   checkfly-menu-title: "Проверка режима полета"
   target-health-level: "&a{health_level}"
   target-food-level: "&a{food_level}"
   command-disable: "&cКоманда отключена"
+  heal-command: "&aВы вылечили себя"
+  heal-command-target: "&aВы вылечили игрока {player_name}"
+  feed-command: "&aВы покормили себя"
+  feed-command-target: "&aВы покормили игрока {player_name}"
+  feed-command-target-me: "&aВас покормили"
+  heal-command-target-me: "&aВас вылечили"

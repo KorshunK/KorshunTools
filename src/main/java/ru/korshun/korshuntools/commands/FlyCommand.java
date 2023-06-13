@@ -11,7 +11,6 @@ import ru.korshun.korshuntools.KorshunTools;
 public class FlyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
         if (!KorshunTools.getInstance().getConfig().getBoolean("commands.fly")) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.command-disable")));
             return true;
@@ -23,8 +22,10 @@ public class FlyCommand implements CommandExecutor {
                 if (!(sender instanceof Player)) {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.sender-not-player")));
                     return false;
-                } else {
+                }
+                else {
                     if (args.length == 0) {
+                        Player player = (Player) sender;
                         if (player.getAllowFlight() == false) {
                             player.setAllowFlight(true);
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-enable")));
@@ -48,12 +49,12 @@ public class FlyCommand implements CommandExecutor {
                     } else {
                         if (!target.getAllowFlight()) {
                             target.setAllowFlight(true);
-                            sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target);
+                            sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target.getName());
                             target.sendMessage(ChatColor.GREEN + "Вам включили режим полета");
                             return true;
                         } else {
                             target.setAllowFlight(false);
-                            sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target);
+                            sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target.getName());
                             target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
                             return true;
                         }
