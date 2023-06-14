@@ -45,6 +45,19 @@ commands:
     aliases:
       - ktfeed
       - korshuntoolsfeed
+  flyspeed:
+    aliases:
+      - ktflyspeed
+      - ktfs
+      - korshuntoolsfs
+      - korshuntoolsflyspeed
+  checkflyspeed:
+    aliases:
+      - cfs
+      - ktcheckflyspeed
+      - ktcfs
+      - korshuntoolscheckflyspeed
+      - korshuntoolscfs
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -75,4 +88,13 @@ permissions:
     default: op
   korshuntools.feed:
     description: Разрешение на использование команды /feed
+    default: op
+  korshuntools.flyspeed:
+    description: Разрешение на использование команды /flyspeed
+    default: op
+  korshuntools.flyspeed.others:
+    description: Разрешение на использование команды /flyspeed для других игроков
+    default: op
+  korshuntools.checkflyspeed:
+    description: Разрешение на использование команды /checkflyspeed
     default: op

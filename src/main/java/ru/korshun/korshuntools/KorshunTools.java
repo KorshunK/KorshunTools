@@ -29,6 +29,8 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("checkfood").setExecutor(new CheckFoodCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("feed").setExecutor(new FeedCommand());
+        getCommand("flyspeed").setExecutor(new FlySpeedCommand());
+        getCommand("checkflyspeed").setExecutor(new CheckFlySpeedCommand());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
         saveDefaultConfig();
     }

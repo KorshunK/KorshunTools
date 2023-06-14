@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Zombie;
 import ru.korshun.korshuntools.KorshunTools;
 
 public class FlyCommand implements CommandExecutor {
@@ -79,6 +80,7 @@ public class FlyCommand implements CommandExecutor {
                         target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
                         return true;
                     } else {
+                        target.getAddress();
                         sender.sendMessage(ChatColor.RED + "Неизвестный аргумент!");
                         return false;
                     }

@@ -11,7 +11,7 @@ public class KorshunToolsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.GREEN + "Версия: 1.3.2");
+            sender.sendMessage(ChatColor.GREEN + "Версия: 1.3.3");
             sender.sendMessage(ChatColor.RED + "Для помощи: /kt help");
             return true;
         }
@@ -35,6 +35,8 @@ public class KorshunToolsCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.GREEN + "Проверить уровень еды игрока: /checkfood <Игрок>");
             sender.sendMessage(ChatColor.GREEN + "Вылечить себя или игрока: /heal");
             sender.sendMessage(ChatColor.GREEN + "Покормить себя или игрока: /feed");
+            sender.sendMessage(ChatColor.GREEN + "Установить скорость полета: /flyspeed");
+            sender.sendMessage(ChatColor.GREEN + "Проверить скорость полета игрока: /checkflyspeed");
             return true;
         }
         else {

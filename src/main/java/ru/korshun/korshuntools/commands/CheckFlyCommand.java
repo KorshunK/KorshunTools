@@ -1,8 +1,6 @@
 package ru.korshun.korshuntools.commands;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,13 +8,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
+import org.jetbrains.annotations.NotNull;
 import ru.korshun.korshuntools.KorshunTools;
 
 public class CheckFlyCommand implements CommandExecutor {
+    private static CheckFlyCommand instance;
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        Inventory CheckFlyInv = Bukkit.createInventory(player, 45, KorshunTools.getInstance().getConfig().getString("messages.checkfly-menu-title"));
+        Inventory CheckFlyInv = Bukkit.createInventory(null, 45, KorshunTools.getInstance().getConfig().getString("messages.checkfly-menu-title"));
         if (!KorshunTools.getInstance().getConfig().getBoolean("commands.checkfly")) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.command-disable")));
             return true;
@@ -40,6 +41,7 @@ public class CheckFlyCommand implements CommandExecutor {
                         ItemStack FlyDisable = new ItemStack(FlyDisableMaterial);
                         ItemMeta FlyDisableIM = FlyDisable.getItemMeta();
                         FlyDisableIM.setDisplayName(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("fly-disable-displayname")));
+                        FlyDisableIM.getPersistentDataContainer().set(NamespacedKey.fromString("target"), PersistentDataType.STRING, target.getName());
                         FlyDisable.setItemMeta(FlyDisableIM);
                         CheckFlyInv.setItem(22, FlyDisable);
                         player.openInventory(CheckFlyInv);
@@ -49,6 +51,7 @@ public class CheckFlyCommand implements CommandExecutor {
                         ItemStack FlyEnable = new ItemStack(FlyEnableMaterial);
                         ItemMeta FlyEnableIM = FlyEnable.getItemMeta();
                         FlyEnableIM.setDisplayName(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("fly-enable-displayname")));
+                        FlyEnableIM.getPersistentDataContainer().set(NamespacedKey.fromString("target"), PersistentDataType.STRING, target.getName());
                         FlyEnable.setItemMeta(FlyEnableIM);
                         CheckFlyInv.setItem(22, FlyEnable);
                         player.openInventory(CheckFlyInv);
@@ -57,5 +60,9 @@ public class CheckFlyCommand implements CommandExecutor {
             }
             return true;
         }
+    }
+
+    public static CheckFlyCommand getInstance() {
+        return instance;
     }
 }

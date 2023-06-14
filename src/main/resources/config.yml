@@ -11,6 +11,8 @@ commands:
   setfood: true
   feed: true
   heal: true
+  flyspeed: true
+  checkflyspeed: true
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
