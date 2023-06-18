@@ -58,6 +58,16 @@ commands:
       - ktcfs
       - korshuntoolscheckflyspeed
       - korshuntoolscfs
+  speed:
+    aliases:
+      - ktspeed
+  fakeenderpearl:
+    aliases:
+      - fep
+      - ktfep
+      - ktfakeenderpearl
+      - korshuntoolsfakeenderpearl
+      - korshuntoolsfep
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -97,4 +107,13 @@ permissions:
     default: op
   korshuntools.checkflyspeed:
     description: Разрешение на использование команды /checkflyspeed
+    default: op
+  korshuntools.speed:
+    description: Разрешение на использование команды /speed
+    default: op
+  korshuntools.speed.others:
+    description: Разрешение на использование команды /speed для других игроков
+    default: op
+  korshuntools.fakeenderpearl:
+    description: Разрешение на использование команды /fakeenderpearl
     default: op

@@ -2,6 +2,7 @@ fly-enable-material: LIME_SHULKER_BOX
 fly-disable-material: RED_SHULKER_BOX
 fly-enable-displayname: "&aВключено"
 fly-disable-displayname: "&cВыключено"
+fake-ender-pearl-display-name: "&aФейковый эндер-жемчуг"
 commands:
   fly: true
   checkfly: true
@@ -13,6 +14,8 @@ commands:
   heal: true
   flyspeed: true
   checkflyspeed: true
+  speed: true
+  fakeenderpearl: true
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
@@ -30,3 +33,4 @@ messages:
   feed-command-target: "&aВы покормили игрока {player_name}"
   feed-command-target-me: "&aВас покормили"
   heal-command-target-me: "&aВас вылечили"
+  unknown-argument: "&cНеизвестный аргумент!"
