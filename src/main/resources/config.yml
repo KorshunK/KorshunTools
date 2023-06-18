@@ -15,7 +15,8 @@ commands:
   flyspeed: true
   checkflyspeed: true
   speed: true
-  fakeenderpearl: true
+  tp: true
+  tphere: true
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
@@ -33,4 +34,8 @@ messages:
   feed-command-target: "&aВы покормили игрока {player_name}"
   feed-command-target-me: "&aВас покормили"
   heal-command-target-me: "&aВас вылечили"
+  tp-to-player: "&aВы были телепортированы к игроку {player_name}"
+  tphere-target: "&aВы были телепортированы к игроку {player_name}"
+  tp-target-is-player: "&cВы не можете телепортироваться к себе!"
+  tphere-target-is-player: "&cВы не можете телепортировать себя к себе!"
   unknown-argument: "&cНеизвестный аргумент!"

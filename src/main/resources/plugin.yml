@@ -61,13 +61,20 @@ commands:
   speed:
     aliases:
       - ktspeed
-  fakeenderpearl:
+  teleport:
     aliases:
-      - fep
-      - ktfep
-      - ktfakeenderpearl
-      - korshuntoolsfakeenderpearl
-      - korshuntoolsfep
+      - tp
+      - kttp
+      - korshuntoolstp
+      - ktteleport
+      - korshuntoolsteleport
+  teleporthere:
+    aliases:
+      - tphere
+      - kttphere
+      - korshuntoolstphere
+      - ktteleporthere
+      - korshuntoolsteleporthere
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -114,6 +121,9 @@ permissions:
   korshuntools.speed.others:
     description: Разрешение на использование команды /speed для других игроков
     default: op
-  korshuntools.fakeenderpearl:
-    description: Разрешение на использование команды /fakeenderpearl
+  korshuntools.teleport:
+    description: Разрешение на использование команды /tp
+    default: op
+  korshuntools.tphere:
+    description: Разрешение на использование команды /tphere
     default: op

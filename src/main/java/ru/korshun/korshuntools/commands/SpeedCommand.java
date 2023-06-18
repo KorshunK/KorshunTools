@@ -98,6 +98,9 @@ public class SpeedCommand implements CommandExecutor {
                     player.sendMessage(ChatColor.GREEN + "Вы установили игроку " + target.getName() + " скорость на значение " + DoubleSpeedTarget);
                     return true;
                 }
+                else {
+                    sender.sendMessage(ChatColor.RED + "Введите команду правильно!");
+                }
             }
         }
         sender.sendMessage(ChatColor.RED + "Неизвестный аргумент!");

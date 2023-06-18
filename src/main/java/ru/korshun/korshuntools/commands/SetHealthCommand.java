@@ -41,6 +41,9 @@ public class SetHealthCommand implements CommandExecutor {
                     sender.sendMessage(ChatColor.GREEN + "Вы установили игроку " + target.getName() + " уровень здоровья на значение " + HealthLevel);
                     return true;
                 }
+                else {
+                    sender.sendMessage(ChatColor.RED + "Введите команду правильно!");
+                }
             }
             return false;
         }
