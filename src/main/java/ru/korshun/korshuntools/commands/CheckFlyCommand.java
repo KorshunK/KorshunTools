@@ -14,6 +14,7 @@ import ru.korshun.korshuntools.KorshunTools;
 
 public class CheckFlyCommand implements CommandExecutor {
     private static CheckFlyCommand instance;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
@@ -36,33 +37,53 @@ public class CheckFlyCommand implements CommandExecutor {
                         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
                         return false;
                     }
-                    if (!player.getAllowFlight()) {
-                        Material FlyDisableMaterial = Material.valueOf(KorshunTools.getInstance().getConfig().getString("fly-disable-material"));
-                        ItemStack FlyDisable = new ItemStack(FlyDisableMaterial);
-                        ItemMeta FlyDisableIM = FlyDisable.getItemMeta();
-                        FlyDisableIM.setDisplayName(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("fly-disable-displayname")));
-                        FlyDisableIM.getPersistentDataContainer().set(NamespacedKey.fromString("target"), PersistentDataType.STRING, target.getName());
-                        FlyDisable.setItemMeta(FlyDisableIM);
-                        CheckFlyInv.setItem(22, FlyDisable);
-                        player.openInventory(CheckFlyInv);
-                    }
-                    if (player.getAllowFlight()) {
-                        Material FlyEnableMaterial = Material.valueOf(KorshunTools.getInstance().getConfig().getString("fly-enable-material"));
-                        ItemStack FlyEnable = new ItemStack(FlyEnableMaterial);
-                        ItemMeta FlyEnableIM = FlyEnable.getItemMeta();
-                        FlyEnableIM.setDisplayName(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("fly-enable-displayname")));
-                        FlyEnableIM.getPersistentDataContainer().set(NamespacedKey.fromString("target"), PersistentDataType.STRING, target.getName());
-                        FlyEnable.setItemMeta(FlyEnableIM);
-                        CheckFlyInv.setItem(22, FlyEnable);
-                        player.openInventory(CheckFlyInv);
+                    if (KorshunTools.getInstance().getConfig().getBoolean("checkfly-in-gui")) {
+                        if (!player.getAllowFlight()) {
+                            Material FlyDisableMaterial = Material.valueOf(KorshunTools.getInstance().getConfig().getString("fly-disable-material"));
+                            ItemStack FlyDisable = new ItemStack(FlyDisableMaterial);
+                            ItemMeta FlyDisableIM = FlyDisable.getItemMeta();
+                            FlyDisableIM.setDisplayName(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("fly-disable-displayname")));
+                            FlyDisableIM.getPersistentDataContainer().set(NamespacedKey.fromString("target"), PersistentDataType.STRING, target.getName());
+                            FlyDisable.setItemMeta(FlyDisableIM);
+                            CheckFlyInv.setItem(22, FlyDisable);
+                            player.openInventory(CheckFlyInv);
+                        }
+                        if (player.getAllowFlight()) {
+                            Material FlyEnableMaterial = Material.valueOf(KorshunTools.getInstance().getConfig().getString("fly-enable-material"));
+                            ItemStack FlyEnable = new ItemStack(FlyEnableMaterial);
+                            ItemMeta FlyEnableIM = FlyEnable.getItemMeta();
+                            FlyEnableIM.setDisplayName(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("fly-enable-displayname")));
+                            FlyEnableIM.getPersistentDataContainer().set(NamespacedKey.fromString("target"), PersistentDataType.STRING, target.getName());
+                            FlyEnable.setItemMeta(FlyEnableIM);
+                            CheckFlyInv.setItem(22, FlyEnable);
+                            player.openInventory(CheckFlyInv);
+                        }
+                    } else if (!KorshunTools.getInstance().getConfig().getBoolean("checkfly-in-gui")) {
+                        if (!sender.hasPermission("korshuntools.checkfly")) {
+                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.no-permissions")));
+                            return false;
+                        } else {
+                            if (args.length == 0) {
+                                sender.sendMessage(ChatColor.RED + "Использование: /checkfly <Игрок>");
+                            }
+                            if (args.length == 1) {
+                                if (target == null) {
+                                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
+                                    return false;
+                                }
+                                if (target.getAllowFlight()) {
+                                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-enable-message")));
+                                    return true;
+                                } else if (!target.getAllowFlight()) {
+                                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.fly-disable-message")));
+                                    return true;
+                                }
+                            }
+                        }
                     }
                 }
+                return true;
             }
-            return true;
         }
-    }
-
-    public static CheckFlyCommand getInstance() {
-        return instance;
     }
 }

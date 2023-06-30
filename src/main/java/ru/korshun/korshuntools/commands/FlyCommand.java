@@ -21,8 +21,29 @@ public class FlyCommand implements CommandExecutor {
                 return false;
             } else {
                 if (!(sender instanceof Player)) {
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.sender-not-player")));
-                    return false;
+                    if(args.length == 0) {
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.sender-not-player")));
+                        return false;
+                    }
+                    if(args.length == 1) {
+                        Player target = Bukkit.getPlayer(args[0]);
+                        if (target == null) {
+                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
+                            return false;
+                        }
+                        if(!target.getAllowFlight()) {
+                            target.setAllowFlight(true);
+                            sender.sendMessage(ChatColor.GREEN + "Вы включили режим полета игроку " + target.getName());
+                            target.sendMessage(ChatColor.GREEN + "Вам включили режим полета");
+                            return true;
+                        }
+                        else {
+                            target.setAllowFlight(false);
+                            sender.sendMessage(ChatColor.RED + "Вы отключили режим полета игроку " + target.getName());
+                            target.sendMessage(ChatColor.RED + "Вам отключили режим полета");
+                            return true;
+                        }
+                    }
                 }
                 else {
                     if (args.length == 0) {

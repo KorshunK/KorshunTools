@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.korshun.korshuntools.commands.*;
 import ru.korshun.korshuntools.events.InvClickEvent;
+import ru.korshun.korshuntools.events.SeeInvClickEvent;
 import ru.korshun.korshuntools.tabcomplete.FlyTabCompleter;
 import ru.korshun.korshuntools.tabcomplete.KorshunToolsTabCompleter;
 import ru.korshun.korshuntools.tabcomplete.SetFoodTabCompleter;
@@ -15,6 +16,13 @@ public final class KorshunTools extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        new UpdateChecker(this, 110417).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                getLogger().info("Обновлений не найдено");
+            } else {
+                getLogger().info("Найдено обновление! Скачать можно на сайте: https://www.spigotmc.org/resources/korshuntools.110417/");
+            }
+        });
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("fly").setTabCompleter(new FlyTabCompleter());
         getCommand("sethealth").setExecutor(new SetHealthCommand());
@@ -23,7 +31,7 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("setfood").setTabCompleter(new SetFoodTabCompleter());
         getCommand("korshuntools").setExecutor(new KorshunToolsCommand());
         getCommand("korshuntools").setTabCompleter(new KorshunToolsTabCompleter());
-        getLogger().info("[KorshunTools] " + ChatColor.GREEN + "Enabled!");
+        getLogger().info(ChatColor.GREEN + "Enabled!");
         getCommand("checkfly").setExecutor(new CheckFlyCommand());
         getCommand("checkhealth").setExecutor(new CheckHealthCommand());
         getCommand("checkfood").setExecutor(new CheckFoodCommand());
@@ -34,12 +42,14 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("speed").setExecutor(new SpeedCommand());
         getCommand("teleport").setExecutor(new TPCommand());
         getCommand("tphere").setExecutor(new TPHereCommand());
+        getCommand("seeinventory").setExecutor(new SeeInvCommand());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new SeeInvClickEvent(), this);
         saveDefaultConfig();
     }
     @Override
     public void onDisable() {
-        getLogger().info("[KorshunTools] " + ChatColor.RED + "Disabled!");
+        getLogger().info(ChatColor.RED + "Disabled!");
     }
 
     public static KorshunTools getInstance() {

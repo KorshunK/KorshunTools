@@ -2,6 +2,7 @@ name: KorshunTools
 version: '${project.version}'
 main: ru.korshun.korshuntools.KorshunTools
 api-version: 1.16
+prefix: KorshunTools
 commands:
   korshuntools:
     aliases:
@@ -75,6 +76,22 @@ commands:
       - korshuntoolstphere
       - ktteleporthere
       - korshuntoolsteleporthere
+  checkspeed:
+    aliases:
+      - cs
+      - ktcs
+      - ktcheckspeed
+      - korshuntoolscheckspeed
+      - korshuntoolscs
+  seeinventory:
+    aliases:
+      - seeinv
+      - invsee
+      - ktseeinv
+      - korshuntoolsseeinventory
+      - korshuntoolsseeinv
+      - ktinvsee
+      - korshuntoolsinvsee
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -126,4 +143,10 @@ permissions:
     default: op
   korshuntools.tphere:
     description: Разрешение на использование команды /tphere
+    default: op
+  korshuntools.checkspeed:
+    description: Разрешение на использование команды /checkspeed
+    default: op
+  korshuntools.seeinventory:
+    description: Разрешение на использование команды /seeinv
     default: op

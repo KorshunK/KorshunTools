@@ -40,6 +40,7 @@ public class KorshunToolsCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.GREEN + "Установить скорость: /speed");
             sender.sendMessage(ChatColor.GREEN + "Телепортация: /tp");
             sender.sendMessage(ChatColor.GREEN + "Телепортировать игрока к себе: /tphere");
+            sender.sendMessage(ChatColor.GREEN + "Проверить скорость игрока: /checkspeed");
             return true;
         }
         else {

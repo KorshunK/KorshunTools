@@ -2,7 +2,7 @@ fly-enable-material: LIME_SHULKER_BOX
 fly-disable-material: RED_SHULKER_BOX
 fly-enable-displayname: "&aВключено"
 fly-disable-displayname: "&cВыключено"
-fake-ender-pearl-display-name: "&aФейковый эндер-жемчуг"
+checkfly-in-gui: true
 commands:
   fly: true
   checkfly: true
@@ -39,3 +39,9 @@ messages:
   tp-target-is-player: "&cВы не можете телепортироваться к себе!"
   tphere-target-is-player: "&cВы не можете телепортировать себя к себе!"
   unknown-argument: "&cНеизвестный аргумент!"
+  fly-enable-message: "&aДа"
+  fly-disable-message: "&cНет"
+  you-see-inv: "&aВы просматриваете инвентарь игрока {player_name}"
+  seeinv-target-is-player: "&cВы итак можете посмотреть свой инвентарь!"
+  vanish-enable: "&aВы исчезли"
+  vanish-disable: "&aВы появились"

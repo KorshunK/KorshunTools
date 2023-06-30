@@ -15,7 +15,7 @@ public class TPCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!KorshunTools.getInstance().getConfig().getBoolean("commands.tp")) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.command-disable")));
-            return true;
+            return false;
         }
         else {
             if (!sender.hasPermission("korshuntools.teleport")) {
