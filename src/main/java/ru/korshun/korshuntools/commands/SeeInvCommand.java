@@ -39,12 +39,14 @@ public class SeeInvCommand implements CommandExecutor {
                     if(player == target) {
                         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.seeinv-target-is-player")));
                     }
-                    Inventory targetInv = target.getInventory();
-                    player.updateInventory();
-                    player.openInventory(targetInv);
-                    player.updateInventory();
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.you-see-inv").replace("{player_name}", player.getName())));
-                    return true;
+                    else if(player != target) {
+                        Inventory targetInv = target.getInventory();
+                        player.updateInventory();
+                        player.openInventory(targetInv);
+                        player.updateInventory();
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.you-see-inv").replace("{player_name}", player.getName())));
+                        return true;
+                    }
                 }
             }
         }

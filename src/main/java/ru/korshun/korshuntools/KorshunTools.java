@@ -3,6 +3,7 @@ package ru.korshun.korshuntools;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.korshun.korshuntools.commands.*;
+import ru.korshun.korshuntools.events.GmCheckInvClickEvent;
 import ru.korshun.korshuntools.events.InvClickEvent;
 import ru.korshun.korshuntools.events.SeeInvClickEvent;
 import ru.korshun.korshuntools.tabcomplete.FlyTabCompleter;
@@ -42,9 +43,12 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("speed").setExecutor(new SpeedCommand());
         getCommand("teleport").setExecutor(new TPCommand());
         getCommand("tphere").setExecutor(new TPHereCommand());
+        getCommand("checkspeed").setExecutor(new CheckSpeedCommand());
         getCommand("seeinventory").setExecutor(new SeeInvCommand());
+        getCommand("gmcheck").setExecutor(new GmCheckCommand());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SeeInvClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new GmCheckInvClickEvent(), this);
         saveDefaultConfig();
     }
     @Override

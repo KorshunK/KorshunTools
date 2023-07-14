@@ -92,6 +92,13 @@ commands:
       - korshuntoolsseeinv
       - ktinvsee
       - korshuntoolsinvsee
+  gmcheck:
+    aliases:
+      - ktgmcheck
+      - korshuntoolsgmcheck
+      - ktcheckgm
+      - korshuntoolscheckgm
+      - checkgm
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -149,4 +156,7 @@ permissions:
     default: op
   korshuntools.seeinventory:
     description: Разрешение на использование команды /seeinv
+    default: op
+  korshuntools.gmcheck:
+    description: Разрешение на использование команды /gmcheck
     default: op

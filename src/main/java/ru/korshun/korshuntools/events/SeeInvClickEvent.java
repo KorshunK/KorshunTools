@@ -8,7 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class SeeInvClickEvent implements Listener {
     @EventHandler
     public void onInvSeeClick(InventoryClickEvent e) {
-        if(!e.getWhoClicked().hasPermission("korshuntools.seeinventory") && e.getView().getTitle() == "Player") {
+        if(!e.getWhoClicked().hasPermission("korshuntools.seeinventory.editinventory") && e.getView().getTitle() == "Player") {
             e.setCancelled(true);
         }
     }

@@ -17,6 +17,9 @@ commands:
   speed: true
   tp: true
   tphere: true
+  checkspeed: true
+  seeinv: true
+  gmcheck: true
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
