@@ -20,6 +20,13 @@ commands:
   checkspeed: true
   seeinv: true
   gmcheck: true
+  nick: true
+  realname: true
+nick:
+  menu-title: "Настройка ника"
+  info-of-nick-display-name: "&aИнформация о нике"
+  new-nick-display-name: "&a+ Новый ник"
+  clear-nick-display-name: "&cСбросить ник"
 messages:
   no-permissions: "&cНе достаточно прав!"
   player-not-found: "&cИгрок не найден!"
@@ -46,5 +53,6 @@ messages:
   fly-disable-message: "&cНет"
   you-see-inv: "&aВы просматриваете инвентарь игрока {player_name}"
   seeinv-target-is-player: "&cВы итак можете посмотреть свой инвентарь!"
-  vanish-enable: "&aВы исчезли"
-  vanish-disable: "&aВы появились"
+  change-nick: "&aВы изменили свой ник! Текущий ник: {currency_nick}"
+  clear-nick: "&cВы сбросили свой ник"
+  realname: "&aТекущий ник игрока {player_nick}: {player_name}"

@@ -99,6 +99,14 @@ commands:
       - ktcheckgm
       - korshuntoolscheckgm
       - checkgm
+  nick:
+    aliases:
+      - ktnick
+      - korshuntoolsnick
+  realname:
+    aliases:
+      - ktrealname
+      - korshuntoolsrealname
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -159,4 +167,13 @@ permissions:
     default: op
   korshuntools.gmcheck:
     description: Разрешение на использование команды /gmcheck
+    default: op
+  korshuntools.nick:
+    description: Разрешение на использование команды /nick
+    default: op
+  korshuntools.nick.others:
+    description: Разрешение на использование команды /nick для других игроков
+    default: op
+  korshuntools.realname:
+    description: Разрешение на использование команды /realname
     default: op

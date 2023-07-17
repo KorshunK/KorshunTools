@@ -1,18 +1,18 @@
 package ru.korshun.korshuntools;
 
+import com.sun.security.auth.module.UnixLoginModule;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.checkerframework.checker.units.qual.A;
 import ru.korshun.korshuntools.commands.*;
-import ru.korshun.korshuntools.events.GmCheckInvClickEvent;
-import ru.korshun.korshuntools.events.InvClickEvent;
-import ru.korshun.korshuntools.events.SeeInvClickEvent;
-import ru.korshun.korshuntools.tabcomplete.FlyTabCompleter;
-import ru.korshun.korshuntools.tabcomplete.KorshunToolsTabCompleter;
-import ru.korshun.korshuntools.tabcomplete.SetFoodTabCompleter;
-import ru.korshun.korshuntools.tabcomplete.SetHealthTabCompleter;
+import ru.korshun.korshuntools.events.*;
+import ru.korshun.korshuntools.tabcomplete.*;
+
+import javax.swing.*;
 
 public final class KorshunTools extends JavaPlugin {
     private static KorshunTools instance;
+    private NickCommand nickCommand;
 
     @Override
     public void onEnable() {
@@ -46,9 +46,13 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("checkspeed").setExecutor(new CheckSpeedCommand());
         getCommand("seeinventory").setExecutor(new SeeInvCommand());
         getCommand("gmcheck").setExecutor(new GmCheckCommand());
+        getCommand("nick").setExecutor(new NickCommand());
+        getCommand("realname").setExecutor(new RealNameCommand());
+        getCommand("nick").setTabCompleter(new NickCompleter());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SeeInvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new GmCheckInvClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new NickMenuEvent(), this);
         saveDefaultConfig();
     }
     @Override
