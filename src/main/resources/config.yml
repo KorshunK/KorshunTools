@@ -22,6 +22,7 @@ commands:
   gmcheck: true
   nick: true
   realname: true
+  clear: true
 nick:
   menu-title: "Настройка ника"
   info-of-nick-display-name: "&aИнформация о нике"
@@ -56,3 +57,11 @@ messages:
   change-nick: "&aВы изменили свой ник! Текущий ник: {currency_nick}"
   clear-nick: "&cВы сбросили свой ник"
   realname: "&aТекущий ник игрока {player_nick}: {player_name}"
+  clear-inv: "&aВы отчистили себе инвентарь"
+  clear-inv-other: "&aВы отчистили инвентарь игроку {player_name}"
+  target-clear-inv: "&aВам отчистили инвентарь"
+  target-change-nick: "&aВам поменяли ник"
+  me-target-change-nick: "&aВы поменяли ник игроку {player_name}"
+  ext-me: "&aВы потушили себя"
+  ext-target-me: "&aВы потушили игрока {player_name}"
+  ext-target: "&aВас потушили"

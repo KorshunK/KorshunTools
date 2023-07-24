@@ -107,6 +107,14 @@ commands:
     aliases:
       - ktrealname
       - korshuntoolsrealname
+  clear:
+    aliases:
+      - ktclear
+      - korshuntoolsclear
+  ext:
+    aliases:
+      - ktext
+      - korshuntoolsext
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -176,4 +184,13 @@ permissions:
     default: op
   korshuntools.realname:
     description: Разрешение на использование команды /realname
+    default: op
+  korshuntools.clear:
+    description: Разрешение на использование команды /clear
+    default: op
+  korshuntools.clear.others:
+    description: Разрешение на использование команды /clear для других игроков
+    default: op
+  korshuntools.ext:
+    description: Разрешение на использование команды /ext
     default: op

@@ -8,12 +8,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import ru.korshun.korshuntools.KorshunTools;
 
 public class SeeInvCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        Inventory targetSeeInv = Bukkit.createInventory(null, 54, "hbgfgh");
         if (!KorshunTools.getInstance().getConfig().getBoolean("commands.seeinv")) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.command-disable")));
             return true;
@@ -41,8 +43,9 @@ public class SeeInvCommand implements CommandExecutor {
                     }
                     else if(player != target) {
                         Inventory targetInv = target.getInventory();
+                        targetSeeInv.addItem((ItemStack) targetInv);
                         player.updateInventory();
-                        player.openInventory(targetInv);
+                        player.openInventory(targetSeeInv);
                         player.updateInventory();
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.you-see-inv").replace("{player_name}", player.getName())));
                         return true;

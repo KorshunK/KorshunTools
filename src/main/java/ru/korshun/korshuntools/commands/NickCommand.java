@@ -43,13 +43,22 @@ public class NickCommand implements CommandExecutor {
                     return false;
                 } else {
                     if (!(sender instanceof Player)) {
-
+                        if(args.length == 0) {
+                            sender.sendMessage(ChatColor.RED + "Иапользование: /nick <Игрок>");
+                            return false;
+                        }
+                        if(args.length == 1) {
+                            Player target = Bukkit.getPlayer(args[0]);
+                            player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.me-target-change-nick").replace("{player_name}", target.getName()).replace("{currency_nick}", player.getDisplayName())));
+                            target.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.target-change-nick")));
+                        }
                     } else {
                         if (args.length == 0) {
                             player.openInventory(NickChangeInv);
                         }
                         if (args.length == 1) {
                             player.setDisplayName(args[0]);
+                            player.setPlayerListName(args[0]);
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.change-nick").replace("{currency_nick}", player.getDisplayName())));
                             if(args[0].equalsIgnoreCase("clear")) {
                                 player.setDisplayName(player.getName());

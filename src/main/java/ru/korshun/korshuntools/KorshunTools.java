@@ -49,6 +49,8 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("nick").setExecutor(new NickCommand());
         getCommand("realname").setExecutor(new RealNameCommand());
         getCommand("nick").setTabCompleter(new NickCompleter());
+        getCommand("clear").setExecutor(new ClearCommand());
+        getCommand("ext").setExecutor(new ExtCommand());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SeeInvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new GmCheckInvClickEvent(), this);
