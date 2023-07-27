@@ -41,6 +41,13 @@ public class KorshunToolsCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.GREEN + "Телепортация: /tp");
             sender.sendMessage(ChatColor.GREEN + "Телепортировать игрока к себе: /tphere");
             sender.sendMessage(ChatColor.GREEN + "Проверить скорость игрока: /checkspeed");
+            sender.sendMessage(ChatColor.GREEN + "Посмотреть инвентарь игрока: /invsee");
+            sender.sendMessage(ChatColor.GREEN + "Проверить режим игрока: /gmcheck");
+            sender.sendMessage(ChatColor.GREEN + "Изменить ник: /nick");
+            sender.sendMessage(ChatColor.GREEN + "Узнать настоящий ник игрока: /realname");
+            sender.sendMessage(ChatColor.GREEN + "Отчистить инвентарь: /clear");
+            sender.sendMessage(ChatColor.GREEN + "Поджечь игрока: /burn");
+            sender.sendMessage(ChatColor.GREEN + "Потушить игрока: /ext");
             return true;
         }
         else {

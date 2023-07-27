@@ -115,6 +115,14 @@ commands:
     aliases:
       - ktext
       - korshuntoolsext
+  burn:
+    aliases:
+      - ktburn
+      - korshuntoolsburn
+  additem:
+    aliases:
+      - ktadditem
+      - korshuntoolsadditem
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -193,4 +201,10 @@ permissions:
     default: op
   korshuntools.ext:
     description: Разрешение на использование команды /ext
+    default: op
+  korshuntools.burn:
+    description: Разрешение на использование команды /burn
+    default: op
+  korshuntools.additem:
+    description: Разрешение на использование команды /additem
     default: op

@@ -23,6 +23,7 @@ commands:
   nick: true
   realname: true
   clear: true
+  ext: true
 nick:
   menu-title: "Настройка ника"
   info-of-nick-display-name: "&aИнформация о нике"
@@ -65,3 +66,4 @@ messages:
   ext-me: "&aВы потушили себя"
   ext-target-me: "&aВы потушили игрока {player_name}"
   ext-target: "&aВас потушили"
+  burn-player: "&aВы подожгли игрока {player_name} на {burn_time}"
