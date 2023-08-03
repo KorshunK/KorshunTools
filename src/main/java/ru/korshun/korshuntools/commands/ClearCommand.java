@@ -49,14 +49,16 @@ public class ClearCommand implements CommandExecutor {
                     }
                 }
                 else {
-                    Player target = Bukkit.getPlayer(args[0]);
-                    if (target == null) {
-                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
-                        return false;
+                    if (args.length == 1) {
+                        Player target = Bukkit.getPlayer(args[0]);
+                        if (target == null) {
+                            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.player-not-found")));
+                            return false;
+                        }
+                        clearInventory(target);
+                        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.clear-inv-other").replace("{player_name}", target.getName())));
+                        target.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.target-clear-inv")));
                     }
-                    clearInventory(target);
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.clear-inv-other").replace("{player_name}", target.getName())));
-                    target.sendMessage(ChatColor.translateAlternateColorCodes('&', KorshunTools.getInstance().getConfig().getString("messages.target-clear-inv")));
                 }
             }
         }

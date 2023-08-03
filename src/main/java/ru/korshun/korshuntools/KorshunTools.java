@@ -53,6 +53,8 @@ public final class KorshunTools extends JavaPlugin {
         getCommand("ext").setExecutor(new ExtCommand());
         getCommand("burn").setExecutor(new BurnCommand());
         getCommand("additem").setExecutor(new AddItemCommand());
+        getCommand("damage").setExecutor(new DamageCommand());
+        getCommand("damage").setTabCompleter(new DamageTabCompleter());
         getServer().getPluginManager().registerEvents(new InvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SeeInvClickEvent(), this);
         getServer().getPluginManager().registerEvents(new GmCheckInvClickEvent(), this);

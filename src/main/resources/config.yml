@@ -24,6 +24,9 @@ commands:
   realname: true
   clear: true
   ext: true
+  burn: true
+  additem: true
+  damage: true
 nick:
   menu-title: "Настройка ника"
   info-of-nick-display-name: "&aИнформация о нике"
@@ -67,3 +70,4 @@ messages:
   ext-target-me: "&aВы потушили игрока {player_name}"
   ext-target: "&aВас потушили"
   burn-player: "&aВы подожгли игрока {player_name} на {burn_time}"
+  damage-player: "&aВы нанесли урон игроку {player_name}. Урон: {damage}"

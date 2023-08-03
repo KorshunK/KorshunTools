@@ -2,6 +2,7 @@ package ru.korshun.korshuntools.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +32,10 @@ public class AddItemCommand implements CommandExecutor {
                     Player player = (Player) sender;
                     Player target = Bukkit.getPlayer(args[0]);
                     ItemStack targetAddItemStack = player.getItemInHand();
+                    if(targetAddItemStack.getType() == Material.AIR) {
+                        sender.sendMessage(ChatColor.RED + "Возьмите предмет в руку!");
+                        return false;
+                    }
                     targetAddItemStack.setAmount(targetAddItemStack.getAmount());
                     AddItem(target, targetAddItemStack);
                 }

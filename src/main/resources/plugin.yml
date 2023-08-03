@@ -123,6 +123,10 @@ commands:
     aliases:
       - ktadditem
       - korshuntoolsadditem
+  damage:
+    aliases:
+      - ktdamage
+      - korshuntoolsdamage
 permissions:
   korshuntools.fly:
     description: Разрешение на включение/отключение режима полета
@@ -207,4 +211,7 @@ permissions:
     default: op
   korshuntools.additem:
     description: Разрешение на использование команды /additem
+    default: op
+  korshuntools.damage:
+    description: Разрешение на использование команды /damage
     default: op
